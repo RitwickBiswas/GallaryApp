@@ -52,7 +52,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.img.setScaleType(ImageView.ScaleType.CENTER_CROP);
 //        setImageFromPath(gallaryList.get(position).getPath(), holder.img);
-        Picasso.with(context).load(new File(gallaryList.get(position).getPath())).into(holder.img);
+        Picasso.with(context).load(new File(gallaryList.get(position).getPath())).resize(400,400).centerCrop().into(holder.img);
 //        Picasso.with(context).load(setImageFromPath(gallaryList.get(position).getPath())).into(holder.img);
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
