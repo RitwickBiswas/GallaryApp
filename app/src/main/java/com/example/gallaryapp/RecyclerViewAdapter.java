@@ -3,6 +3,8 @@ package com.example.gallaryapp;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,9 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -42,8 +47,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+
+
+
         holder.img.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        setImageFromPath(gallaryList.get(position).getPath(), holder.img);
+//        setImageFromPath(gallaryList.get(position).getPath(), holder.img);
+        Picasso.with(context).load(new File(gallaryList.get(position).getPath())).into(holder.img);
+//        Picasso.with(context).load(setImageFromPath(gallaryList.get(position).getPath())).into(holder.img);
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,8 +88,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         File imgFile = new File(path);
         if(imgFile.exists()){
             Bitmap bitmap = ImageHelper.decodeSampledBitMapFromPath(imgFile.getAbsolutePath(),200,200);
-            image.setImageBitmap(bitmap);
+//            image.setImageBitmap(bitmap);
+
 
         }
     }
+
 }
