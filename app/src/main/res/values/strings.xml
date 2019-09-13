@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GallaryApp</string>
+
+    <string name="title_activity_full_image_view">FullImageViewActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+
+    <string name="title_activity_full_screen_image_view">FullScreenImageView</string>
+</resources>
